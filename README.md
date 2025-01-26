@@ -90,7 +90,7 @@ procedure:
 1. Go to Xilinx, Create boot image, Zynq and Zynq Ultrascale.
 2. Select architecture ”Zynq”, make sure that ’Create new BIF file’ is checked, and set ”/path_to/lab5.bif” as the ’Output BIF file path’.
 3. In the boot image partitions:
-  1. Add FSBL executable (”/path_to/fsbl.elf”) as bootloader.
-  2. Add PL bitstream (”/path_to/system wrapper.bit”) as datafile.
-  3. Add U-Boot executable (”/path_to/u-boot.elf”) as datafile. All those
+    1. Add FSBL executable (”/path_to/fsbl.elf”) as bootloader.
+    2. Add PL bitstream (”/path_to/system wrapper.bit”) as datafile.
+    3. Add U-Boot executable (”/path_to/u-boot.elf”) as datafile. All those
 4. Click on ’Create Image’
