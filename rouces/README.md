@@ -1,3 +1,11 @@
+Clone Linux kernel
+```plaintext
+git clone https://github.com/xilinx/linux-xlnx.git
+```
+Checkout fixed version (Linux kernel)
+```plaintext
+cd linux-xlnx && git checkout xilinx-v<version(2022.2 2023.2 ...)> && cd ..
+```
 Prepare the environment (**if you open a new console you will have to export the environment again**)
 ```plaintext
 export CROSS_COMPILE=arm-linux-gnueabihf-
