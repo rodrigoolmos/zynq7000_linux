@@ -1,6 +1,7 @@
 # zynq7000_linux
 This repository contains how to boot linux on a zynq
 
+##Set up
 Clone U-Boot Second Stage BootLoader (SSBL)
 ```plaintext
 git clone https://github.com/xilinx/u-boot-xlnx.git
@@ -26,11 +27,12 @@ Prepare the environment (**if you open a new console you will have to export the
 export CROSS_COMPILE=arm-linux-gnueabihf-
 source /tools/Xilinx/Vivado/2022.2/settings64.sh
 ```
-Generate your Vivado Zynq project:
+
+##Generate your Vivado Zynq project:
   - Generate the bitstream.
   - Export hardware (.xsa file).
 
-Generate your FSBL with VITIS IDE (fsbl.elf)
+##Generate your FSBL with VITIS IDE (fsbl.elf)
 1. Create a new platform project using the exported hardware XSA from Vivado.
     - Create a new platform  
     ![Create a new platform](create_a_new_platform.png)
@@ -48,8 +50,7 @@ Generate your FSBL with VITIS IDE (fsbl.elf)
     ![Add xilffs library 2](xilffs_library2.png)
 6. Build the FSBL application.
 
-
-Generate device tree blob with Vitis (devicetree.dtb)
+##Generate device tree blob with Vitis (devicetree.dtb)
 1. Add device tree utils repo: In Xilinx tab, select Software Repositories and add it.
     Add device tree utils repo.
     ![Add device tree utils repo](Add_device_tree.png)
@@ -64,7 +65,7 @@ Generate device tree blob with Vitis (devicetree.dtb)
 dtc -I dts -O dtb -o "path/out.dtb" "path/in.dts"
 ```
 
-Build the U-Boot: (u-boot.elf)
+##Build the U-Boot: (u-boot.elf)
   - Place the DTS file in the path: u-boot-xlnx/arch/arm/dts/$(board-name).dts
   - Add the DTB path name to the Makefile: u-boot-xlnx/arch/arm/dts/Makefile under dtb-$(CONFIG_ARCH_ZYNQ) group += \ -> $(board-name).dtb
   - Add to u-boot-xlnx/configs/xilinx_zynq_virt_defconfig: under CONFIG_OF_LIST label -> CONFIG_OF_LIST="..... $(board-name)"
@@ -72,11 +73,11 @@ Build the U-Boot: (u-boot.elf)
   - make xilinx_zynq_virt_defconfig
   - make -j $(nproc)
 
-Build Linux kernel (uImage)
+##Build Linux kernel (uImage)
   - [Build linux kernel from sources](sources/README.md)
   - [Build linux kernel buildroot](buildroot/README.md)
 
-Create the boot image (BOOT.bin)
+##Generate the boot image (BOOT.bin)
 To create a boot image, you can use the Create Boot Image wizard in the Vitis IDE or the Bootgen
 command line tool (the Create Boot Image Wizard also calls the Bootgen tool). The principle function
 of the Create Boot Image wizard or Bootgen is to integrate the partitions (hardware-bitstream and
