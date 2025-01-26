@@ -30,7 +30,7 @@ Generate your Vivado Zynq project:
   - Generate the bitstream.
   - Export hardware (.xsa file).
 
-Generate your FSBL with VITIS IDE
+Generate your FSBL with VITIS IDE (fsbl.elf)
 1. Create a new platform project using the exported hardware XSA from Vivado.
     - Create a new platform  
     ![Create a new platform](create_a_new_platform.png)
@@ -49,7 +49,7 @@ Generate your FSBL with VITIS IDE
 6. Build the FSBL application.
 
 
-Generate device tree blob with Vitis
+Generate device tree blob with Vitis (devicetree.dtb)
 1. Add device tree utils repo: In Xilinx tab, select Software Repositories and add it.
     Add device tree utils repo.
     ![Add device tree utils repo](Add_device_tree.png)
@@ -64,7 +64,7 @@ Generate device tree blob with Vitis
 dtc -I dts -O dtb -o "path/out.dtb" "path/in.dts"
 ```
 
-Build the U-Boot:
+Build the U-Boot: (u-boot.elf)
   - Place the DTS file in the path: u-boot-xlnx/arch/arm/dts/$(board-name).dts
   - Add the DTB path name to the Makefile: u-boot-xlnx/arch/arm/dts/Makefile under dtb-$(CONFIG_ARCH_ZYNQ) group += \ -> $(board-name).dtb
   - Add to u-boot-xlnx/configs/xilinx_zynq_virt_defconfig: under CONFIG_OF_LIST label -> CONFIG_OF_LIST="..... $(board-name)"
@@ -72,6 +72,25 @@ Build the U-Boot:
   - make xilinx_zynq_virt_defconfig
   - make -j $(nproc)
 
-Build Linux kernel
+Build Linux kernel (uImage)
   - [Build linux kernel from sources](sources/README.md)
   - [Build linux kernel buildroot](buildroot/README.md)
+
+Create the boot image (BOOT.bin)
+To create a boot image, you can use the Create Boot Image wizard in the Vitis IDE or the Bootgen
+command line tool (the Create Boot Image Wizard also calls the Bootgen tool). The principle function
+of the Create Boot Image wizard or Bootgen is to integrate the partitions (hardware-bitstream and
+software) in the proper format. It allows you to specify security options and also to create cryptographic
+keys.
+Functionally, Bootgen uses a BIF (Bootgen image format) file as an input and generates a single
+file image in binary BIN or MCS format. It can program non-volatile memories such as QSPI and SD
+cards. The Bootgen GUI facilitates the creation of a BIF input file.
+In this case, we will use the Vitis IDE again to create the boot image. We must follow this
+procedure:
+1. Go to Xilinx, Create boot image, Zynq and Zynq Ultrascale.
+2. Select architecture ”Zynq”, make sure that ’Create new BIF file’ is checked, and set ”/path_to/lab5.bif” as the ’Output BIF file path’.
+3. In the boot image partitions:
+ - Add FSBL executable (”/path_to/fsbl.elf”) as bootloader.
+ - Add PL bitstream (”/path_to/system wrapper.bit”) as datafile.
+ - Add U-Boot executable (”/path_to/u-boot.elf”) as datafile. All those
+4. Click on ’Create Image’
