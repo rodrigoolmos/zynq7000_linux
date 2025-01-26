@@ -107,13 +107,14 @@ In GParted, perform the following steps:
 6. Close GParted.
 
 ## Format SD card
+### First partition
 Coppy to the first partition:
  - BOOT.bin
  - devicetree.dtb
  - uImage
  - [extlinux/extlinux.conf](extlinux/extlinux.conf)
 
- ## Generate de rootfs
+### Second partition rootfs
   - **Linaro**
 
     Download the root filesystem from Linaro repository:
