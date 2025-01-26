@@ -1,7 +1,7 @@
 Prepare the environment (**if you open a new console you will have to export the environment again**)
 ```plaintext
 export CROSS_COMPILE=arm-linux-gnueabihf-
-source /tools/Xilinx/Vivado/2022.2/settings64.sh
+source /tools/Xilinx/Vivado/<version>/settings64.sh
 export ARCH=arm
 export PATH="/path_to_u-boot/u-boot-xlnx/tools":$PATH
 ```
