@@ -25,5 +25,4 @@ To compile the SO use:
 This will generate different files in output/images/. Use the ones that you need. For example, you could flash the SD card with the image sdcard.img and replace the files relative to your system:
  - BOOT.bin
  - devicetree.dtb
- - u-boot.elf
  - extlinux/extlinux.conf
