@@ -115,7 +115,8 @@ Coppy to the first partition:
 
  ## Generate de rootfs
   - **Linaro**
-    Download now the root filesystem from Linaro repository:
+
+    Download the root filesystem from Linaro repository:
     ```plaintext
     wget https://releases.linaro.org/debian/images/developer-armhf/17.08/linaro-stretch-developer-20170706-43.tar.gz
     ```
