@@ -73,5 +73,5 @@ Build the U-Boot:
   - make -j $(nproc)
 
 Build Linux kernel
-  - [Build linux kernel from rouces](sources/README.md)
+  - [Build linux kernel from sources](sources/README.md)
   - [Build linux kernel buildroot](buildroot/README.md)
