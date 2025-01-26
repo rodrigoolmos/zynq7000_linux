@@ -59,7 +59,7 @@ Generate device tree blob with Vitis
 ```plaintext
 "$CROSS_COMPILE"gcc -E -nostdinc -x assembler-with-cpp -o "path/out.dts" "path/in.dts"
 ```
-    5. Compile now the device tree:
+5. Compile now the device tree:
 ```plaintext
 dtc -I dts -O dtb -o "path/out.dtb" "path/in.dts"
 ```
