@@ -69,9 +69,15 @@ dtc -I dts -O dtb -o "path/out.dtb" "path/in.dts"
   - Place the DTS file in the path: u-boot-xlnx/arch/arm/dts/$(board-name).dts
   - Add the DTB path name to the Makefile: u-boot-xlnx/arch/arm/dts/Makefile under dtb-$(CONFIG_ARCH_ZYNQ) group += \ -> $(board-name).dtb
   - Add to u-boot-xlnx/configs/xilinx_zynq_virt_defconfig: under CONFIG_OF_LIST label -> CONFIG_OF_LIST="..... $(board-name)"
-  - export DEVICE_TREE=$(board-name)
-  - make xilinx_zynq_virt_defconfig
-  - make -j $(nproc)
+```plaintext
+export DEVICE_TREE=$(board-name)
+```
+```plaintext
+export CROSS_COMPILE=arm-linux-gnueabihf-
+source /tools/Xilinx/Vivado/2022.2/settings64.sh
+make xilinx_zynq_virt_defconfig
+make -j $(nproc)
+```
 
 ## Build Linux kernel (uImage)
   - [Build linux kernel from sources](sources/README.md)
