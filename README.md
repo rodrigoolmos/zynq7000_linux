@@ -95,3 +95,41 @@ procedure:
     - Add PL bitstream (”/path_to/system wrapper.bit”) as datafile.
     - Add U-Boot executable (”/path_to/u-boot.elf”) as datafile. All those
 4. Click on ’Create Image’
+
+## Format SD card
+We will now format the SD card by creating the two partitions required for the boot process: one for the boot files and one for the file system. 
+In GParted, perform the following steps:
+1. Locate the SD card in the drop-down menu on the upper right. Typically, it will be /dev/sdb
+2. Delete all partitions. If this option is not enabled, you must unmount each partition first.
+3. Create a 100 MiB fat32 partition at the beginning of the drive. Use BOOT as label.
+4. Create an ext4 partition right after the fat32 one, leave 100 MiB free after. Use rootfs as label.
+5. Apply all operations using the green tick icon in gparted.
+6. Close GParted.
+
+## Format SD card
+Coppy to the first partition:
+ - BOOT.bin
+ - devicetree.dtb
+ - uImage
+ - [extlinux/extlinux.conf](extlinux/extlinux.conf)
+
+ ## Generate de rootfs
+  - **Linaro**
+    Download now the root filesystem from Linaro repository:
+    ```plaintext
+    wget https://releases.linaro.org/debian/images/developer-armhf/17.08/linaro-stretch-developer-20170706-43.tar.gz
+    ```
+    Mount second SD card partition (replace /dev/sdb2 with your local /dev/sdX2 device)
+    ```plaintext
+    sudo -H mount /dev/sdb2 /mnt
+    ```
+    Extract root file system onto the second SD card partition
+    ```plaintext
+    sudo -H tar --strip-components=1 -xzvphf "/home/user/Desktop/lab5/linaro-stretch-developer-20170706-43.tar.gz" -C /mnt
+    sync
+    ```
+    Unmount the second SD card partition
+    ```plaintext
+    sudo -H umount /mnt
+    ```
+  - [Buildroot](buildroot/README.md)
