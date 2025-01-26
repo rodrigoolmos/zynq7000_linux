@@ -26,3 +26,9 @@ This will generate different files in output/images/. Use the ones that you need
  - BOOT.bin
  - devicetree.dtb
  - extlinux/extlinux.conf
+And delete the file not used u-boot.img or u-boot.bin
+The boot partition should have the followin:
+ - BOOT.bin (yours)
+ - devicetree.dtb (yours)
+ - extlinux/extlinux.conf (yours)
+ - uImage (buildroot)
