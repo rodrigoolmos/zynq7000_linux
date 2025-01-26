@@ -21,7 +21,7 @@ Install the device tree compiler
 ```plaintext
 sudo -H apt-get install device-tree-compiler
 ```
-Prepare the environment <span style="color:red">(if you open a new console you will have to export the environment again)</span>
+Prepare the environment ("if you open a new console you will have to export the environment again")
 ```plaintext
 export CROSS_COMPILE=arm-linux-gnueabihf-
 source /tools/Xilinx/Vivado/2022.2/settings64.sh
