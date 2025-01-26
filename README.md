@@ -71,3 +71,7 @@ Build the U-Boot:
   - export DEVICE_TREE=$(board-name)
   - make xilinx_zynq_virt_defconfig
   - make -j $(nproc)
+
+Build Linux kernel
+  - [Build linux kernel from rouces](Build\ linux\ kernel\ from\ rouces/README.md)
+  - Build linux kernel buildroot
