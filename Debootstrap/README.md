@@ -33,7 +33,7 @@ echo "zynq" | sudo tee ~/Documents/debootstrap/etc/hostname
 ```
 Access the chroot environment, then set the root password:
 ```plaintext
-sudo chroot /mnt/sd_rootfs
+sudo chroot ~/Documents/debootstrap/
 passwd root
 exit
 ```
