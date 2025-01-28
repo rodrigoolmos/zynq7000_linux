@@ -113,6 +113,7 @@ In GParted, perform the following steps:
 4. Create an ext4 partition right after the fat32 one, leave 100 MiB free after. Use rootfs as label.
 5. Apply all operations using the green tick icon in gparted.
 6. Close GParted.
+    ![GParted](images/GParted.png)
 
 ## Format SD card
 ### First partition
