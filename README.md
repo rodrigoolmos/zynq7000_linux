@@ -60,11 +60,11 @@ The FSBL is responsible for loading the bitstream and configuring the Zynq PS al
 3. Generate device tree: In Xilinx, Vitis -> Generate Device Tree.
 4. Apply now the C/C++ preprocessor to handle includes:
 ```plaintext
-"$CROSS_COMPILE"gcc -E -nostdinc -x assembler-with-cpp -o "path/out.dts" "path/in.dts"
+"$CROSS_COMPILE"gcc -E -nostdinc -x assembler-with-cpp -o "path/devicetree.dts" "path/system-top.dts"
 ```
 5. Compile now the device tree:
 ```plaintext
-dtc -I dts -O dtb -o "path/out.dtb" "path/in.dts"
+dtc -I dts -O dtb -o "path/devicetree.dtb" "path/devicetree.dts"
 ```
 
 ## Build the U-Boot: (u-boot.elf)
