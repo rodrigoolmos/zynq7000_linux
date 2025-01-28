@@ -34,7 +34,17 @@ sudo chroot /mnt/sd_rootfs
 passwd root
 exit
 ```
+Coppy the rootfs to your SD:
+```plaintext
+sudo rsync -aHAX debootstrap/ /path_to_SD/rootfs/
+```
+```plaintext
+sync
+```
+
+unmount de SD and extract it.
 
 For more info:
 
 https://wiki.debian.org/Debootstrap
+
