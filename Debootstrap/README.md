@@ -44,7 +44,7 @@ exit
 ```
 Coppy the rootfs to your SD:
 ```plaintext
-sudo rsync -aHAX debootstrap/ /path_to_SD/rootfs/
+sudo rsync -aHAX ~/Documents/debootstrap /path_to_SD/rootfs/
 ```
 ```plaintext
 sync
