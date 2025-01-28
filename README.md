@@ -33,7 +33,11 @@ source /tools/Xilinx/Vivado/2022.2/settings64.sh
   - Export hardware (.xsa file).
 
 ## Generate your FSBL with VITIS IDE (fsbl.elf)
+The FSBL is responsible for loading the bitstream and configuring the Zynq PS al boot time.
 1. Create a new platform project using the exported hardware XSA from Vivado.
+    ![platform project 1](images/platform_project1.png)  
+    Select Zynq FSBL
+    ![platform project 2](images/platform_project2.png)
 2. Modify the BSP settings for the standalone OS to include the xilffs library.
     - Add xilffs library  
     ![Add xilffs library 1](images/xilffs_library1.png)  
