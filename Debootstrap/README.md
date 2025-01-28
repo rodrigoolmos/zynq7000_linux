@@ -31,15 +31,17 @@ Set hostname:
 ```plaintext
 echo "zynq" | sudo tee ~/Documents/debootstrap/etc/hostname
 ```
-Access the chroot environment, then set the root password:
+Access the chroot environment
+
+From here you can configure diferent stuff of the rootfs apt network etc
+
 ```plaintext
 sudo chroot ~/Documents/debootstrap/
 ```
+Set the root password:
 ```plaintext
 passwd root
 ```
-From here you can configure diferent stuff of the rootfs apt network etc
-
 Example debian network "/etc/network/interfaces"
 ```plaintext
 auto lo
