@@ -35,6 +35,9 @@ Access the chroot environment, then set the root password:
 ```plaintext
 sudo chroot ~/Documents/debootstrap/
 passwd root
+```
+From here you can configure diferent stuff of the rootfs apt network etc
+```plaintext
 exit
 ```
 Coppy the rootfs to your SD:
