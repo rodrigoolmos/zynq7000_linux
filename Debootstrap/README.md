@@ -14,7 +14,10 @@ mkdir -p ~/Documents/debootstrap/
 ```
 Use debootstrap to install Debian into the directory (rootfs) you just created:
 ```plaintext
-sudo debootstrap --arch=armhf --foreign <distro> ~/Documents/debootstrap/ http://deb.debian.org/debian
+sudo debootstrap --arch=armhf --foreign <distro> ~/Documents/debootstrap/ http://deb.debian.org/debian #debian
+```
+```plaintext
+sudo debootstrap --arch=armhf --foreign jammy ~/Documents/debootstrap/ http://ports.ubuntu.com/ubuntu-ports/ #ubuntu
 ```
 Copy qemu-arm-static into the rootfs for ARM emulation:
 ```plaintext
