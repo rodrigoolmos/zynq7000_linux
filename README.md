@@ -34,8 +34,6 @@ source /tools/Xilinx/Vivado/2022.2/settings64.sh
 
 ## Generate your FSBL with VITIS IDE (fsbl.elf)
 1. Create a new platform project using the exported hardware XSA from Vivado.
-    - Create a new platform  
-    ![Create a new platform](create_a_new_platform.png)
 2. Modify the BSP settings for the standalone OS to include the xilffs library.
     - Add xilffs library  
     ![Add xilffs library 1](xilffs_library1.png)  
@@ -46,16 +44,16 @@ source /tools/Xilinx/Vivado/2022.2/settings64.sh
 5. Change the C/C++ Build Settings for the FSBL application (See Figure 7) to include FSBL_DEBUG_INFO.
     This allows the FSBL to print debug messages during the boot process.
     - Add xilffs library  
-    ![Add xilffs library 1](xilffs_library1.png)  
-    ![Add xilffs library 2](xilffs_library2.png)
+    ![FSBL_DEBUG_INFO 1](FSBL_DEBUG_INFO1.png)  
+    ![FSBL_DEBUG_INFO 2](FSBL_DEBUG_INFO2.png)
 6. Build the FSBL application.
 
 ## Generate device tree blob with Vitis (devicetree.dtb)
-1. Add device tree utils repo: In Xilinx tab, select Software Repositories and add it.
+1. Add device tree utils repo: In Xilinx tab, select Vitis -> Software Repositories and add it.
     Add device tree utils repo.
     ![Add device tree utils repo](Add_device_tree.png)
-2. Refresh repositories: In Xilinx, Scan Repositories.
-3. Generate device tree: In Xilinx, Generate Device Tree.
+2. Refresh repositories: In Xilinx, Vitis -> Scan Repositories.
+3. Generate device tree: In Xilinx, Vitis -> Generate Device Tree.
 4. Apply now the C/C++ preprocessor to handle includes:
 ```plaintext
 "$CROSS_COMPILE"gcc -E -nostdinc -x assembler-with-cpp -o "path/out.dts" "path/in.dts"
