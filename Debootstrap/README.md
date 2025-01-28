@@ -34,6 +34,8 @@ echo "zynq" | sudo tee ~/Documents/debootstrap/etc/hostname
 Access the chroot environment, then set the root password:
 ```plaintext
 sudo chroot ~/Documents/debootstrap/
+```
+```plaintext
 passwd root
 ```
 From here you can configure diferent stuff of the rootfs apt network etc
