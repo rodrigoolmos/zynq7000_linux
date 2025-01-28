@@ -39,6 +39,20 @@ sudo chroot ~/Documents/debootstrap/
 passwd root
 ```
 From here you can configure diferent stuff of the rootfs apt network etc
+
+Example debian network "/etc/network/interfaces"
+```plaintext
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+        address 192.168.11.100
+        netmask 255.255.255.0
+        gateway 192.168.11.1
+        dns-nameservers 8.8.8.8 8.8.4.4
+```
+To exit chroot:     
 ```plaintext
 exit
 ```
