@@ -76,7 +76,7 @@ export DEVICE_TREE=$(board-name)
 ```
 ```plaintext
 export CROSS_COMPILE=arm-linux-gnueabihf-
-source /tools/Xilinx/Vivado/2022.2/settings64.sh
+source /tools/Xilinx/Vivado/20XX.X/settings64.sh
 make xilinx_zynq_virt_defconfig
 make -j $(nproc)
 ```
